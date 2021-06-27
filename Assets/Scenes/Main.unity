@@ -2372,7 +2372,7 @@ GameObject:
   - component: {fileID: 628349936}
   m_Layer: 0
   m_Name: UnityChan
-  m_TagString: Untagged
+  m_TagString: UnityChan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2555,6 +2555,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   mainCamera: {fileID: 519420028}
+  bullet: {fileID: 5214679455682685550, guid: b8a54669d163b49389aed4d7f7dce60a, type: 3}
 --- !u!1001 &630309620
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -19,6 +19,9 @@ public class Player : MonoBehaviour
     // 手順3で追加
     public GameObject mainCamera;
 
+    // 手順5で追加
+    public GameObject bullet;
+
     private Rigidbody2D rigidbody2D;
 
     private Animator anim;
@@ -41,11 +44,13 @@ public class Player : MonoBehaviour
         // Linecastでユニティちゃんの足元に地面があるか判定
         isGrounded = Physics2D.Linecast(transform.position + transform.up * 1, transform.position - transform.up * 0.05f, groundLayer);
 
+        Debug.DrawLine(transform.position + transform.up * 1, transform.position - transform.up * 0.05f, Color.blue, 1.0f);
+
         // スペースキーを押し
         if (Input.GetKeyDown ("space"))
         {
             // 着地していた時
-            if (isGrounded)
+            if (isGrounded　== true)
             {
                 // Dashアニメーションを止めて、Jumpアニメーションを実行
                 anim.SetBool("Dash", false);
@@ -73,8 +78,17 @@ public class Player : MonoBehaviour
         anim.SetBool("isJumping", isJumping);
 
         anim.SetBool("isFalling", isFalling);
+
+        // 手順5で追加
+        if (Input.GetKeyDown ("left shift"))
+        {
+            anim.SetTrigger("Shot");
+
+            Instantiate(bullet, transform.position + new Vector3(0f, 1.2f, 0f), transform.rotation);
+        }
     }
 
+    // 物理演算に適している
     private void FixedUpdate()
     {
         // 左キー: -1、右キー: 1
