@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     // 手順5で作成
     private GameObject player;
 
-    private int speed = 10;
+    private int speed = 20;
 
     void Start()
     {
