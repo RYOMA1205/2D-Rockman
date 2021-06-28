@@ -82,6 +82,8 @@ public class Player : MonoBehaviour
         // 手順5で追加
         if (Input.GetKeyDown ("left shift"))
         {
+            Debug.Log("弾生成");
+
             anim.SetTrigger("Shot");
 
             Instantiate(bullet, transform.position + new Vector3(0f, 1.2f, 0f), transform.rotation);
