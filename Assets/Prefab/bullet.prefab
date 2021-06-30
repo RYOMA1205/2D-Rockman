@@ -33,6 +33,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc867a1636f0f4f4f8508e1697510a55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &1751012049540347664
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3473719355095397180}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.15
 --- !u!1 &5214679455682685550
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,9 +62,10 @@ GameObject:
   - component: {fileID: 5087055665734813897}
   - component: {fileID: 1598337037377555630}
   - component: {fileID: 4307054799900377519}
+  - component: {fileID: 7936169340091574701}
   m_Layer: 0
   m_Name: bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,6 +188,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc867a1636f0f4f4f8508e1697510a55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &7936169340091574701
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5214679455682685550}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.15
 --- !u!1001 &548376057636755955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -178,6 +211,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3757678370509097547}
     m_Modifications:
+    - target: {fileID: 4010763637027809999, guid: 4d8538615fdbf432cb9dd15c44cd0f95, type: 3}
+      propertyPath: m_TagString
+      value: Bullet
+      objectReference: {fileID: 0}
     - target: {fileID: 6520894659328264743, guid: 4d8538615fdbf432cb9dd15c44cd0f95, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -17,13 +17,16 @@ public class Player : MonoBehaviour
     public LayerMask groundLayer;
     
     // 手順3で追加
+    // カメラを使ってUnityChanが一定の位置を超えたら背景も動くように設定するための宣言
     public GameObject mainCamera;
 
     // 手順5で追加
+    // 弾生成用
     public GameObject bullet;
 
     private Rigidbody2D rigidbody2D;
 
+    // アニメーション設定用
     private Animator anim;
 
     // 手順4で追加
@@ -44,6 +47,8 @@ public class Player : MonoBehaviour
         // Linecastでユニティちゃんの足元に地面があるか判定
         isGrounded = Physics2D.Linecast(transform.position + transform.up * 1, transform.position - transform.up * 0.05f, groundLayer);
 
+        // UnityChanがいる位置に青い線を出してる
+        // どの位置に判定などがあるかを視覚化する為
         Debug.DrawLine(transform.position + transform.up * 1, transform.position - transform.up * 0.05f, Color.blue, 1.0f);
 
         // スペースキーを押し
@@ -52,9 +57,10 @@ public class Player : MonoBehaviour
             // 着地していた時
             if (isGrounded　== true)
             {
-                // Dashアニメーションを止めて、Jumpアニメーションを実行
+                // Dashアニメーションを止めて
                 anim.SetBool("Dash", false);
 
+                // Jumpアニメーションを実行
                 anim.SetTrigger("Jump");
 
                 // 着地判定をfalse
@@ -80,12 +86,16 @@ public class Player : MonoBehaviour
         anim.SetBool("isFalling", isFalling);
 
         // 手順5で追加
+        // どこのボタンを押したら弾が出るかを決定
         if (Input.GetKeyDown ("left shift"))
         {
+            // ボタンを押して弾が出る度にログが出るようにした
             Debug.Log("弾生成");
 
+            // ボタンが押されたタイミングでセットしたアニメーションが反映される
             anim.SetTrigger("Shot");
 
+            // Prefab化したものを特定の位置から出し続けられるように設定
             Instantiate(bullet, transform.position + new Vector3(0f, 1.2f, 0f), transform.rotation);
         }
     }
