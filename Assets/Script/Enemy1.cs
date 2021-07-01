@@ -11,6 +11,11 @@ public class Enemy1 : MonoBehaviour
 
     public GameObject explosion;
 
+    // 8で追加
+    public int attackPoint = 10;
+
+    public Life lifeScript;
+
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -28,6 +33,17 @@ public class Enemy1 : MonoBehaviour
             Destroy(gameObject);
 
             Instantiate(explosion, transform.position, transform.rotation);
+        }
+    }
+
+    // 8で追加
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // UnityChanとぶつかった時
+        if (collision.gameObject.tag == "UnityChan")
+        {
+            // LifeScriptのLifeDownメソッドを実行
+            lifeScript.LifeDown(attackPoint);
         }
     }
 }
