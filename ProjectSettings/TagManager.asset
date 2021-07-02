@@ -8,6 +8,8 @@ TagManager:
   - UnityChan
   - Bullet
   - Enemy
+  - PlayerDamege
+  - EnemyDamage
   layers:
   - Default
   - TransparentFX
@@ -19,9 +21,9 @@ TagManager:
   - 
   - Ground
   - Player
-  - 
-  - 
-  - 
+  - PlayerDamage
+  - Enemy
+  - EnemyDamage
   - 
   - 
   - 
