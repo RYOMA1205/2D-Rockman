@@ -11,14 +11,21 @@ public class Enemy1 : MonoBehaviour
 
     public GameObject explosion;
 
+    // 手順11で追加
+    public GameObject item;
+
     // 8で追加
     public int attackPoint = 10;
 
-    public Life lifeScript;
+    // 手順11で変更
+    private Life lifeScript;
 
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+
+        // 手順11で追加
+        lifeScript = GameObject.FindGameObjectWithTag("HP").GetComponent<Life>();
     }
 
     void Update()
@@ -33,6 +40,14 @@ public class Enemy1 : MonoBehaviour
             Destroy(gameObject);
 
             Instantiate(explosion, transform.position, transform.rotation);
+
+            // 手順11で追加
+            // 四分の一の確率で回復アイテムを落とす
+            if (Random.Range (0, 4) == 0)
+            {
+                Instantiate (item, transform.position, transform.rotation);
+            }
+
         }
     }
 

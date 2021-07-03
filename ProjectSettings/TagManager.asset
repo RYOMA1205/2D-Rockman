@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - PlayerDamege
   - EnemyDamage
+  - HP
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - PlayerDamage
   - Enemy
   - EnemyDamage
-  - 
+  - Item
   - 
   - 
   - 
