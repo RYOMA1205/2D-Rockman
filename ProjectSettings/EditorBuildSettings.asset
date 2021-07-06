@@ -6,10 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/UnityChan2D/Demo/Scenes/Start.unity
+    path: Assets/Scenes/Title.unity
+    guid: 001a4438cda784b59808dc87fe1a9023
   - enabled: 1
-    path: Assets/UnityChan2D/Demo/Scenes/Loading 1-1.unity
+    path: Assets/Scenes/Stage1.unity
+    guid: 36772e37b95694d21984efcfd0234ffc
   - enabled: 1
-    path: Assets/UnityChan2D/Demo/Scenes/Intro 1-1.unity
-  - enabled: 1
-    path: Assets/UnityChan2D/Demo/Scenes/World 1-1.unity
+    path: Assets/Scenes/Main.unity
+    guid: 39a5a9bcdf4b44ccdb96dac98bcfe15d
+  m_configObjects: {}

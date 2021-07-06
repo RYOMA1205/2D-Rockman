@@ -11,6 +11,7 @@ TagManager:
   - PlayerDamege
   - EnemyDamage
   - HP
+  - ClearZone
   layers:
   - Default
   - TransparentFX
