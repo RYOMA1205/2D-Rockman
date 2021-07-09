@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour
 {
@@ -73,7 +74,8 @@ public class Player : MonoBehaviour
         if (!gameClear)
         {
             // スペースキーを押し
-            if (Input.GetKeyDown("space"))
+            // 手順14で変更
+            if (CrossPlatformInputManager.GetButtonDown("Jump"))
             {
                 // 着地していた時
                 if (isGrounded == true)
@@ -113,7 +115,8 @@ public class Player : MonoBehaviour
         {
             // 手順5で追加
             // どこのボタンを押したら弾が出るかを決定
-            if (Input.GetKeyDown("left shift"))
+            // 手順14で変更
+            if (CrossPlatformInputManager.GetButtonDown("left shift"))
             {
                 // ボタンを押して弾が出る度にログが出るようにした
                 Debug.Log("弾生成");
@@ -143,8 +146,17 @@ public class Player : MonoBehaviour
         // 左右に移動させない MainCameraを動かさない
         if (!gameClear)
         {
-            // 左キー: -1、右キー: 1
-            float x = Input.GetAxisRaw("Horizontal");
+            // 手順14で変更
+            int x = 0;
+
+            if (CrossPlatformInputManager.GetAxisRaw ("Horizontal") >= 0.01f)
+            {
+                x = 1;
+            }
+            else if (CrossPlatformInputManager.GetAxisRaw ("Horizontal") <= -0.01f)
+            {
+                x = -1;
+            }
 
             // 左か右を入力したら
             if (x != 0)
