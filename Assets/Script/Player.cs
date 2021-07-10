@@ -48,6 +48,9 @@ public class Player : MonoBehaviour
     // ゲームクリア時に表示するテキスト
     public Text clearText;
 
+    // プレイヤーの初期位置を保存する(リスポーン用に使う)
+    public Vector3 respawnPos;
+
     void Start()
     {
         // 各コンポーネントをキャッシュしておく
@@ -57,6 +60,9 @@ public class Player : MonoBehaviour
 
         // 9で追加
         renderer = GetComponent<Renderer>();
+
+        // 初期位置を獲得して保存する
+        respawnPos = transform.position;
     }
 
     // 手順4で追加

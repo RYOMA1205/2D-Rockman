@@ -6088,6 +6088,7 @@ MonoBehaviour:
   unityChan: {fileID: 628349927}
   explosion: {fileID: 6495868252760158514, guid: 8c07aad8e9cd54da7acbb5ced042d6ce, type: 3}
   gameOverText: {fileID: 421355187}
+  playerCount: 3
 --- !u!1001 &298649281
 PrefabInstance:
   m_ObjectHideFlags: 0

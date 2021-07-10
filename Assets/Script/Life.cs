@@ -21,6 +21,8 @@ public class Life : MonoBehaviour
     // ゲームオーバー判定
     private bool gameOver = false;
 
+    public int playerCount;
+
     void Start()
     {
         rt = GetComponent<RectTransform>();
@@ -80,8 +82,29 @@ public class Life : MonoBehaviour
     // 手順13で追加
     public void GameOver ()
     {
-        gameOver = true;
+        // プレイヤーの残機数の確認
+        if (playerCount > 0)
+        {
+            // 残機数がまだ残っている場合は残機数を減らす
+            playerCount --;
 
-        Destroy(unityChan);
+            // プレイヤーを初期位置にてリスポーンさせる
+            unityChan.transform.position = unityChan.GetComponent<Player>().respawnPos;
+
+            // カメラの位置を取得
+            Vector3 cameraPos = Camera.main.transform.position;
+
+            // ユニティちゃんの位置から右に4移動した位置を画面中央にする
+            cameraPos.x = unityChan.transform.position.x + 4;
+
+            Camera.main.transform.position = cameraPos;
+        }
+        // 残機数が0になったらgameoverになるようにする
+        else
+        {
+            gameOver = true;
+
+            Destroy(unityChan);
+        }
     }
 }
